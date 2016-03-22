@@ -1,6 +1,6 @@
-angular.module('starter.controllers', [])
+angular.module("starter.controllers", [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller("AppCtrl", function($scope, $ionicModal, $timeout) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -13,7 +13,7 @@ angular.module('starter.controllers', [])
   $scope.loginData = {};
 
   // Create the login modal that we will use later
-  $ionicModal.fromTemplateUrl('templates/login.html', {
+  $ionicModal.fromTemplateUrl("templates/login.html", {
     scope: $scope
   }).then(function(modal) {
     $scope.modal = modal;
@@ -31,7 +31,7 @@ angular.module('starter.controllers', [])
 
   // Perform the login action when the user submits the login form
   $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
+    console.log("Doing login", $scope.loginData);
 
     // Simulate a login delay. Remove this and replace with your login
     // code if using a login system
