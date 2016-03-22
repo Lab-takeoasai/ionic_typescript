@@ -1,3 +1,5 @@
+/// <reference path="../../typings/main.d.ts" />
+
 angular.module("starter.controllers", [])
 
 .controller("AppCtrl", function($scope, $ionicModal, $timeout) {
