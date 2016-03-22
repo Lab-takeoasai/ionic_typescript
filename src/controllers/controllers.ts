@@ -1,8 +1,7 @@
 /// <reference path="../../typings/main.d.ts" />
 
-import {Geolocation} from "ionic-native";
 
-angular.module("starter.controllers", ['ngCordova'])
+angular.module("starter.controllers", ["ngCordova"])
 
 .controller("AppCtrl", function($scope, $ionicModal, $timeout) {
 
@@ -61,13 +60,32 @@ angular.module("starter.controllers", ['ngCordova'])
     $scope.playlists = lists;
 })
 
-.controller("PlaylistCtrl", function($scope, $stateParams, $cordovaProgress, $ionicPlatform) {
+.controller("PlaylistCtrl", function($scope, $stateParams, $cordovaProgress, $ionicPlatform, $cordovaGeolocation) {
     $scope.title = $stateParams;
-    
+    /*
     $ionicPlatform.ready(function() {
         $cordovaProgress.showSimple(true);
     });
-    
+    */
+    $ionicPlatform.ready(function() {
+        const posOptions = {timeout: 10000, enableHighAccuracy: false};
+        $cordovaGeolocation
+        .getCurrentPosition(posOptions)
+        .then(function (position) {
+            const lat  = position.coords.latitude;
+            const long = position.coords.longitude;
+            console.log(lat);
+            console.log(long);
+        }, function(err) {
+              // error
+              console.log("error");
+        });
+    });
+    /*
+    $ionicPlatform.ready(function() {
+        $cordovaProgress.showSimple(true);
+    });
+    */
     /*
     $cordovaProgress.showSimple(true)  // requires .hide()
 
