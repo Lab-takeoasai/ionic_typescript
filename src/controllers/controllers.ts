@@ -1,5 +1,6 @@
 /// <reference path="../../typings/main.d.ts" />
 
+
 angular.module("starter.controllers", [])
 
 .controller("AppCtrl", function($scope, $ionicModal, $timeout) {
@@ -10,6 +11,10 @@ angular.module("starter.controllers", [])
   // listen for the $ionicView.enter event:
   // $scope.$on('$ionicView.enter', function(e) {
   // });
+
+
+// to stop watching
+// watch.unsubscribe();
 
   // Form data for the login modal
   $scope.loginData = {};
