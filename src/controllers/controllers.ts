@@ -94,6 +94,7 @@ console.log("ttoto");
         $cordovaProgress.showSimple(true);
     });
     */
+    
     $ionicPlatform.ready(function() {
         const posOptions = {timeout: 10000, enableHighAccuracy: false};
         $cordovaGeolocation
