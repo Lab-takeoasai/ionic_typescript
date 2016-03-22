@@ -1,5 +1,6 @@
 /// <reference path="../../typings/main.d.ts" />
 
+// import NCMB from "ncmb";
 
 angular.module("starter.controllers", ["ngCordova"])
 
@@ -48,10 +49,34 @@ angular.module("starter.controllers", ["ngCordova"])
   };
 })
 
-.controller("PlaylistsCtrl", function($scope) {
-    let lists = [
-      { title: "Reggae", id: 1 },
-      { title: "Chill", id: 2 },
+.controller("PlaylistsCtrl", function($scope, $ionicPlatform, $cordovaGoogleAnalytics) {
+
+    $ionicPlatform.ready(function() {
+        /*if (typeof window.analytics !== undefined) {
+           console.log("analyze...");
+           console.log(window.analytics);
+         window.analytics.startTrackerWithId("UA-75329068-1");
+        } else {
+            console.log("Google Analytics Unavailable");
+        }*/
+        console.log("start");
+        if(typeof window.analytics !== 'undefined'){
+        console.log($cordovaGoogleAnalytics);
+        // $cordovaGoogleAnalytics.debugMode();
+        $cordovaGoogleAnalytics.startTrackerWithId("UA-75329068-1");
+        $cordovaGoogleAnalytics.trackView('APP first screen');
+        } else {
+            console.log("error");
+        }
+        console.log("end");
+    });
+console.log("ttoto");
+
+
+
+     let lists = [
+      { title: "AReggae", id: 1 },
+      { title: "BChill", id: 2 },
       { title: "Dubstep", id: 3 },
       { title: "Indie", id: 4 },
       { title: "Rap", id: 5 },
