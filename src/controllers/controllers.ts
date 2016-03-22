@@ -1,7 +1,8 @@
 /// <reference path="../../typings/main.d.ts" />
 
+import {Geolocation} from "ionic-native";
 
-angular.module("starter.controllers", [])
+angular.module("starter.controllers", ['ngCordova'])
 
 .controller("AppCtrl", function($scope, $ionicModal, $timeout) {
 
@@ -60,5 +61,38 @@ angular.module("starter.controllers", [])
     $scope.playlists = lists;
 })
 
-.controller("PlaylistCtrl", function($scope, $stateParams) {
+.controller("PlaylistCtrl", function($scope, $stateParams, $cordovaProgress, $ionicPlatform) {
+    $scope.title = $stateParams;
+    
+    $ionicPlatform.ready(function() {
+        $cordovaProgress.showSimple(true);
+    });
+    
+    /*
+    $cordovaProgress.showSimple(true)  // requires .hide()
+
+$cordovaProgress.showSimpleWithLabel(true, "Loading") // .hide()
+
+$cordovaProgress.showSimpleWithLabelDetail(true, "Loading", "detail")
+    // requires .hide()
+
+$cordovaProgress.hide()
+
+
+$cordovaProgress.showDeterminate(false, 100000)
+
+$cordovaProgress.showDeterminateWithLabel(true, 50000, "Loading")
+
+$cordovaProgress.showAnnular(true, 50000)
+
+$cordovaProgress.showAnnularWithLabel(false, 100000, "Loading")
+
+$cordovaProgress.showBar(true, 50000)
+
+$cordovaProgress.showBarWithLabel(false, 100000, "Loading")
+
+
+$cordovaProgress.showSuccess(true, "Success!") // requires .hide()
+
+$cordovaProgress.showText(false, 100000, "Loading")*/
 });

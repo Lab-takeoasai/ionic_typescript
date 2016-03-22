@@ -1,6 +1,6 @@
 /// <reference path="../typings/main.d.ts" />
 
-angular.module("starter", ["ionic", "starter.controllers"])
+angular.module("starter", ["ionic", "starter.controllers", "ngCordova"])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
