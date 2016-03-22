@@ -8,11 +8,26 @@ var rename = require('gulp-rename');
 var sh = require('shelljs');
 var typescript = require('gulp-typescript');
 
+var typescriptProject = typescript.createProject({
+  target: "ES5", 
+  removeComments: true, 
+  sortOutput: true
+});
+
 var paths = {
-  sass: ['./scss/**/*.scss']
+  sass: ['./scss/**/*.scss'],
+  ts: ['./src/**/*.ts']
 };
 
 gulp.task('default', ['sass']);
+
+gulp.task('build', function (done) {
+    gulp.src(paths.ts)
+    .pipe(typescript(typescriptProject))
+    .pipe(concat("main.js"))
+    .pipe(gulp.dest('./www/js/'))
+    .on('end', done);
+});
 
 gulp.task('sass', function(done) {
   gulp.src('./scss/ionic.app.scss')
@@ -29,6 +44,7 @@ gulp.task('sass', function(done) {
 
 gulp.task('watch', function() {
   gulp.watch(paths.sass, ['sass']);
+  gulp.watch(paths.ts, ['build']);
 });
 
 gulp.task('install', ['git-check'], function() {
