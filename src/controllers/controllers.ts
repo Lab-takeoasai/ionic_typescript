@@ -2,6 +2,8 @@
 
 // import NCMB from "ncmb";
 
+// declare function require(x: string): any;
+
 angular.module("starter.controllers", ["ngCordova"])
 
 .controller("AppCtrl", function($scope, $ionicModal, $timeout) {
@@ -105,6 +107,20 @@ console.log("ttoto");
               // error
               console.log("error");
         });
+
+        /*
+        const ncmb = new NCMB("app","key");
+        var TestClass = ncmb.DataStore("DoorData");
+        console.log("ga");
+        TestClass.fetchAll()
+        .then(function(items){
+          console.log(items);
+        })
+        .catch(function(err){
+          console.log("error in ncmb");
+        });
+        console.log("aa");
+        */
     });
     /*
     $ionicPlatform.ready(function() {
