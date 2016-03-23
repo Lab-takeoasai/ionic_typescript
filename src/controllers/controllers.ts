@@ -4,7 +4,7 @@
 
 // declare function require(x: string): any;
 
-angular.module("starter.controllers", ["ngCordova"])
+angular.module("starter.controllers", ["ngCordova", "analytics.services"])
 
 .controller("AppCtrl", function($scope, $ionicModal, $timeout) {
 
@@ -52,28 +52,6 @@ angular.module("starter.controllers", ["ngCordova"])
 })
 
 .controller("PlaylistsCtrl", function($scope, $ionicPlatform, $cordovaGoogleAnalytics) {
-
-    $ionicPlatform.ready(function() {
-        /*if (typeof window.analytics !== undefined) {
-           console.log("analyze...");
-           console.log(window.analytics);
-         window.analytics.startTrackerWithId("UA-75329068-1");
-        } else {
-            console.log("Google Analytics Unavailable");
-        }*/
-        console.log("start");
-        if(typeof window.analytics !== 'undefined'){
-        console.log($cordovaGoogleAnalytics);
-        // $cordovaGoogleAnalytics.debugMode();
-        $cordovaGoogleAnalytics.startTrackerWithId("UA-75329068-1");
-        $cordovaGoogleAnalytics.trackView('APP first screen');
-        } else {
-            console.log("error");
-        }
-        console.log("end");
-    });
-console.log("ttoto");
-
 
 
      let lists = [
