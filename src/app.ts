@@ -2,10 +2,25 @@
 
 angular.module("starter", ["ionic", "starter.controllers", "ngCordova"])
 
-.run(function($ionicPlatform, GAnalytics) {
+.run(function($ionicPlatform, GAnalytics, $cordovaBadge) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
+    console.log("log");
+    $cordovaBadge.set(3).then(function() {
+    // You have permission, badge set.
+  }, function(err) {
+    // You do not have permission.
+  });
+debugger;
+    $cordovaBadge.hasPermission().then(function(yes) {
+    // You have permission
+    console.log("permit");
+  }, function(no) {
+      console.log("err");
+    // You do not have permission
+  });
+  
     if (window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);
