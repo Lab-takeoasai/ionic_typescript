@@ -1,33 +1,30 @@
 /// <reference path="../typings/main.d.ts" />
 
-angular.module("starter", ["ionic", "starter.controllers", "ngCordova"])
+angular.module("starter", ["ionic", "ionic.service.core", "ionic.service.analytics", "starter.controllers", "ngCordova"])
 
-.run(function($ionicPlatform, GAnalytics, $cordovaBadge) {
+.run(function($ionicPlatform, $cordovaBadge, $ionicAnalytics) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
-    console.log("log");
+
+    // ionic analytics
+    console.log("ionic analytics is on.");
+    $ionicAnalytics.register();
+
+    console.log("cordovaBadge: set3...");
     $cordovaBadge.set(3).then(function() {
-    // You have permission, badge set.
-  }, function(err) {
-    // You do not have permission.
-  });
-debugger;
-    $cordovaBadge.hasPermission().then(function(yes) {
-    // You have permission
-    console.log("permit");
-  }, function(no) {
-      console.log("err");
-    // You do not have permission
-  });
-  
+        // You have permission, badge set.
+        console.log("badge is set.");
+    }, function(err) {
+        // You do not have permission.
+        console.log("error: badge is not set.");
+    });
+
     if (window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);
     }
-    
-    GAnalytics.startTracker();
-    
+
     if (window.StatusBar) {
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();

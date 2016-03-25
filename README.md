@@ -27,3 +27,5 @@ $ npm install ncmb -S
 でインストールが可能です。
 ``
 npmではIoT, 普通に使うときは.min.jsを直ダウンロードで
+
+cordovaのdebuggerがうまく動かない -> vscodeを再起動. portがどこかで引っかかってる可能性.
