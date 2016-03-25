@@ -12,18 +12,27 @@ angular.module("starter", ["ionic", "ionic.service.core", "ionic.service.analyti
     $ionicAnalytics.register();
 
 
-    // user test
+    // ionic user
     const details = {
-        'email': 'email@example.com',
-        'password': 'secret'
+        "email": "email@example.com",
+        "password": "secret"
     };
     // this works fine!
-    $ionicAuth.signup(details).then((user) => {
+    $ionicAuth.signup(details).then((succ) => {
         console.log("user created.");
-        console.log(user);
+        console.log(succ);
     }, (errors) => {
         console.log("error creating user");
-        console.log(errors)
+        console.log(errors);
+    });
+    const authProvider = "basic";
+    const authSettings = { "remember": true };
+    $ionicAuth.login(authProvider, authSettings, details).then((succ) => {
+        console.log("user logined.");
+        console.log(succ);
+    }, (errors) => {
+        console.log("error login user");
+        console.log(errors);
     });
 
     console.log("cordovaBadge: set3...");

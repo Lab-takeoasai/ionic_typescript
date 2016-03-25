@@ -44,7 +44,7 @@ angular.module("starter.controllers", ["ngCordova"])
   };
 })
 
-.controller("PlaylistsCtrl", function($scope, $ionicPlatform, $cordovaGoogleAnalytics) {
+.controller("PlaylistsCtrl", function($scope, $ionicPlatform) {
 
 
      let lists = [

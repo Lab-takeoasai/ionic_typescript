@@ -7,6 +7,9 @@ var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
 var typescript = require('gulp-typescript');
+var tslint = require("gulp-tslint");
+var notify = require("gulp-notify");
+var plumber = require('gulp-plumber');
 
 var typescriptProject = typescript.createProject({
   target: "ES5", 
@@ -21,8 +24,17 @@ var paths = {
 
 gulp.task('default', ['sass']);
 
-gulp.task('build', function (done) {
+gulp.task("tslint", function(done) {
     gulp.src(paths.ts)
+    .pipe(plumber({errorHandler: notify.onError('Error: TSLint')}))
+    .pipe(tslint())
+    .pipe(tslint.report("verbose"))
+    .on('end', done);
+});
+
+gulp.task('build', function(done) {
+    gulp.src(paths.ts)
+    .pipe(plumber({errorHandler: notify.onError('Error: typescript')}))
     .pipe(typescript(typescriptProject))
     .pipe(concat("main.js"))
     .pipe(gulp.dest('./www/js/'))
