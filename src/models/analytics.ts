@@ -1,3 +1,4 @@
+/*
 angular.module("analytics.services", ["ngCordova"])
 
 .factory("GAnalytics",
@@ -16,3 +17,7 @@ angular.module("analytics.services", ["ngCordova"])
       }
     };
 }]);
+
+ionic analytics is using.
+
+*/

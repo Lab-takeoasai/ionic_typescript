@@ -1,8 +1,8 @@
 /// <reference path="../typings/main.d.ts" />
 
-angular.module("starter", ["ionic", "ionic.service.core", "ionic.service.analytics", "starter.controllers", "ngCordova"])
+angular.module("starter", ["ionic", "ionic.service.core", "ionic.service.analytics", "starter.controllers", "ionic.service.auth", "ngCordova"])
 
-.run(function($ionicPlatform, $cordovaBadge, $ionicAnalytics) {
+.run(function($ionicPlatform, $cordovaBadge, $ionicAnalytics, $ionicAuth) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -10,6 +10,21 @@ angular.module("starter", ["ionic", "ionic.service.core", "ionic.service.analyti
     // ionic analytics
     console.log("ionic analytics is on.");
     $ionicAnalytics.register();
+
+
+    // user test
+    const details = {
+        'email': 'email@example.com',
+        'password': 'secret'
+    };
+    // this works fine!
+    $ionicAuth.signup(details).then((user) => {
+        console.log("user created.");
+        console.log(user);
+    }, (errors) => {
+        console.log("error creating user");
+        console.log(errors)
+    });
 
     console.log("cordovaBadge: set3...");
     $cordovaBadge.set(3).then(function() {

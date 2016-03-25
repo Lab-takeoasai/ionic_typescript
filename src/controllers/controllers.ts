@@ -1,10 +1,7 @@
 /// <reference path="../../typings/main.d.ts" />
 
-// import NCMB from "ncmb";
 
-// declare function require(x: string): any;
-
-angular.module("starter.controllers", ["ngCordova", "analytics.services"])
+angular.module("starter.controllers", ["ngCordova"])
 
 .controller("AppCtrl", function($scope, $ionicModal, $timeout) {
 
@@ -14,10 +11,6 @@ angular.module("starter.controllers", ["ngCordova", "analytics.services"])
   // listen for the $ionicView.enter event:
   // $scope.$on('$ionicView.enter', function(e) {
   // });
-
-
-// to stop watching
-// watch.unsubscribe();
 
   // Form data for the login modal
   $scope.loginData = {};
@@ -72,7 +65,7 @@ angular.module("starter.controllers", ["ngCordova", "analytics.services"])
         $cordovaProgress.showSimple(true);
     });
     */
-    
+
     $ionicPlatform.ready(function() {
         const posOptions = {timeout: 10000, enableHighAccuracy: false};
         $cordovaGeolocation
