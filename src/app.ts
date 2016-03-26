@@ -1,8 +1,13 @@
 /// <reference path="../typings/main.d.ts" />
 
+// typedefになかったので仕方なく
+interface CordovaPlugins {
+    notification: any;
+}
+
 angular.module("starter", ["ionic", "ionic.service.core", "ionic.service.analytics", "starter.controllers", "ionic.service.auth", "ngCordova"])
 
-.run(function($ionicPlatform, $cordovaBadge, $ionicAnalytics, $ionicAuth) {
+.run(function($ionicPlatform, $ionicAnalytics, $ionicAuth) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -35,15 +40,8 @@ angular.module("starter", ["ionic", "ionic.service.core", "ionic.service.analyti
         console.log(errors);
     });
 
-    console.log("cordovaBadge: set3...");
-    $cordovaBadge.set(3).then(function() {
-        // You have permission, badge set.
-        console.log("badge is set.");
-    }, function(err) {
-        // You do not have permission.
-        console.log("error: badge is not set.");
-        console.log(err);
-    });
+    // this works fine
+    cordova.plugins.notification.badge.set(10);
 
     if (window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
