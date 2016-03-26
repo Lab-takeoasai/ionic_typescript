@@ -46,6 +46,7 @@ ionicコマンドでやればpackage.jsonに記録が残る.
 ionic state restoreでplugin復元.
 pluginは基本chromeでは動かない. deviceかsimulatorでやること.
 + testings
+ - npm install karma --save-dev
 
 cordovaでgeolocation
 <meta http-equiv="Content-Security-Policy" content="default-src *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *">
