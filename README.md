@@ -1,5 +1,7 @@
 # ionic_typescript
 
+[![Build Status](https://secure.travis-ci.org/takeo-asai/ionic_typescript.png?branch=master)](TRAVISa)
+
 typescriptを使ってionicをやる手順確認
 
 + ionicサービス
@@ -47,6 +49,21 @@ ionic state restoreでplugin復元.
 pluginは基本chromeでは動かない. deviceかsimulatorでやること.
 + testings
  - npm install karma --save-dev
+```
+var configuration = {
+    customLaunchers: {
+        Chrome_travis_ci: {
+            base: 'Chrome',
+            flags: ['--no-sandbox']
+        }
+    },
+};
+if (process.env.TRAVIS) {
+    configuration.browsers = ['Chrome_travis_ci'];
+}
+config.set(configuration);
+```
+
 
 cordovaでgeolocation
 <meta http-equiv="Content-Security-Policy" content="default-src *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *">

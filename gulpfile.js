@@ -10,6 +10,7 @@ var typescript = require('gulp-typescript');
 var tslint = require("gulp-tslint");
 var notify = require("gulp-notify");
 var plumber = require('gulp-plumber');
+var karma = require('gulp-karma');
 
 var typescriptProject = typescript.createProject({
   target: "ES5", 
@@ -18,11 +19,26 @@ var typescriptProject = typescript.createProject({
 });
 
 var paths = {
-  sass: ['./scss/**/*.scss'],
-  ts: ['./src/**/*.ts']
+    sass: ['./scss/**/*.scss'],
+    ts: ['./src/**/*.ts'],
+    tests: [
+        'www/lib/angular/angular.js',
+        'www/lib/angular-mocks/angular-mocks.js',
+        'src/**/*.ts',
+        'test/**/*.js'
+    ]
 };
 
 gulp.task('default', ['sass']);
+ 
+gulp.task('karma', function(done) {
+    gulp.src(paths.tests)
+    .pipe(karma({
+        configFile: 'karma.conf.js',
+        action: 'run'
+    }))
+    .on('end', done);
+});
 
 gulp.task("tslint", function(done) {
     gulp.src(paths.ts)
