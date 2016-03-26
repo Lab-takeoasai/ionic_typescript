@@ -42,6 +42,7 @@ angular.module("starter", ["ionic", "ionic.service.core", "ionic.service.analyti
     }, function(err) {
         // You do not have permission.
         console.log("error: badge is not set.");
+        console.log(err);
     });
 
     if (window.cordova && window.cordova.plugins.Keyboard) {
