@@ -11,8 +11,14 @@ index.htmlとかいろいろ書き換えるので最初にする.
 push, user, analytics, deploy, package
 See http://docs.ionic.io
 + VSCode
+ - typescript + cordovaだと多分最強.
+  + Atom
+  + Sublime Text
+  + brackets
  - degugger
  - brew install ideviceinstaller ios-webkit-debug-proxy
++ EditorConfig
+ 対応させて共通化しようね？
 + typings
  - typings install --ambient --save
  - angular
@@ -63,7 +69,7 @@ if (process.env.TRAVIS) {
 }
 config.set(configuration);
 ```
-
+というか.travis.ymlみればsetup方法わかる.
 
 cordovaでgeolocation
 <meta http-equiv="Content-Security-Policy" content="default-src *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *">
