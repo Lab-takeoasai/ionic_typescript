@@ -4,6 +4,7 @@ before_install:
   - sh -e /etc/init.d/xvfb start
   - npm install
   - npm install -g ionic
+  - npm install -g cordova
   - npm install -g gulp
   - npm install -g typings  
   - bower install
