@@ -24,7 +24,7 @@ var paths = {
     tests: [
         'www/lib/angular/angular.js',
         'www/lib/angular-mocks/angular-mocks.js',
-        'src/**/*.ts',
+        'www/js/main.js',
         'test/**/*.js'
     ]
 };
