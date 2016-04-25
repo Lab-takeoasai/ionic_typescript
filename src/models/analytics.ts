@@ -21,3 +21,8 @@ angular.module("analytics.services", ["ngCordova"])
 ionic analytics is using.
 
 */
+
+enum Test {
+	a,
+	b
+}
